@@ -42,7 +42,7 @@ session_start();
         <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
         <p class="text-light my-0 px-2"> Welcome <b>'.$_SESSION['user_name'].'</b></p>
-        <a href="includes/_logout.php" class="btn btn-success ml-2">Logout</a>
+        <a href="includes/_logout.php" class="btn btn-success btn-sm ml-2">Logout</a>
         </form>';
       }else{
         echo '
@@ -50,8 +50,8 @@ session_start();
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
               <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
             </form>
-            <button class="btn btn-success ml-2"  data-toggle="modal" data-target="#loginModal">Login</button>
-            <button class="btn btn-primary mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
+            <button class="btn btn-success btn-sm ml-2"  data-toggle="modal" data-target="#loginModal">Login</button>
+            <button class="btn btn-primary btn-sm mx-2"  data-toggle="modal" data-target="#signupModal">SignUp</button>
           '; 
       }
   echo ' </div>
@@ -71,7 +71,26 @@ session_start();
   }else if(isset($_GET['signupSuccess']) && $_GET['signupSuccess']=="false"){
     echo '
     <div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
-      <strong>Error! </strong> Wrong email or password. Please Try again...
+      <strong>Error! </strong> User exist with same email. Please Try again...
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    ';
+  }
+  if(isset($_GET['signinSuccess']) && $_GET['signinSuccess']=="true"){
+    echo '
+        <div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+          <strong>Success! </strong> You are logged in.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        ';
+  }else if(isset($_GET['signinSuccess']) && $_GET['signinSuccess']=="false"){
+    echo '
+    <div class="alert alert-danger alert-dismissible fade show my-0" role="alert">
+      <strong>Error! </strong> Invalid Credentials. Please Try again...
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>

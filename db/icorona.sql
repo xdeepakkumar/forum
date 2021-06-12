@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 18, 2020 at 10:26 PM
+-- Generation Time: Jan 16, 2021 at 11:41 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -57,14 +57,6 @@ CREATE TABLE `comments` (
   `comment_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`comment_id`, `comment_content`, `thread_id`, `comment_by`, `comment_time`) VALUES
-(1, 'corona symptom', 1, 1, '2020-10-16 13:39:11'),
-(11, '123', 6, 1, '2020-10-19 01:56:03');
-
 -- --------------------------------------------------------
 
 --
@@ -79,14 +71,6 @@ CREATE TABLE `threads` (
   `thread_user_id` int(7) NOT NULL,
   `dt` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `threads`
---
-
-INSERT INTO `threads` (`thread_id`, `thread_subject`, `thread_desc`, `thread_cat_id`, `thread_user_id`, `dt`) VALUES
-(1, 'Symptoms of COVID-19 are fever, tiredness, and dry cough that i am feeling', 'The most common symptoms of COVID-19 are fever, tiredness, and dry cough. Some patients may have aches and pains, nasal congestion, runny nose, sore throat or diarrhea. These symptoms are usually mild and begin gradually. Some people become infected but don\'t develop any symptoms and don\'t feel unwell. Most people (about 80%) recover from the disease without needing special treatment.', 1, 1, '2020-10-15 23:40:45'),
-(6, 'another symptoms', 'another symptoms description', 1, 1, '2020-10-19 01:55:47');
 
 -- --------------------------------------------------------
 
@@ -107,7 +91,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`sno`, `user_name`, `user_email`, `user_pass`, `timestamp`) VALUES
-(1, 'Deepak', 'deepakkumarsah355@gmail.com', '$2y$10$TIsrLNjqHv6heiRwQOpTN.PMDx9gAf1O/BwWXSaMS2OmhHfdSzQxu', '2020-10-16 19:14:00');
+(13, 'Deepak', 'dk3@gmail.com', '$2y$10$RX4elG3Izja1M76Cxg72j.qlfF3k221ewTzxaEUR6TC5mLjouQnsq', '2021-01-16 16:01:10');
 
 --
 -- Indexes for dumped tables
@@ -153,7 +137,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `comment_id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `threads`
@@ -165,7 +149,7 @@ ALTER TABLE `threads`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `sno` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `sno` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

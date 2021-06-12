@@ -39,39 +39,8 @@
       <span class="sr-only">Next</span>
     </a>
   </div><!-- slider end here -->
-  
-  <!-- category container start from here -->
-  <div class="container">
-    <div class="text-center my-4">
-      <h3>iCorona - Browse categories on Corona</h3>
-    </div>
-    <div class="row my-4">
-      <!-- fetch all categories  -->
-      <?php include "includes/_dbconnect.php"; ?>
-      <?php 
-        $sql = "SELECT * FROM `categories`";
-        $result = mysqli_query($con, $sql);
-        while($row = mysqli_fetch_assoc($result)){
-          // echo $row['category_id'];
-          $id = $row['category_id'];
-          $cat = $row['category_name'];
-          $des = $row['category_description'];
-          echo '
-          <div class="col-md-4  my-3">
-            <div class="card" style="width: 18rem;">
-              <img src="https://source.unsplash.com/500x300/?'.$cat.',corona" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="threadlist.php?catid='.$id.'">' . $cat . '</a></h5>
-                  <p class="card-text">'.substr($des, 0 , 80).'...</p>
-                  <a href="threadlist.php?catid='.$id.'" class="btn btn-primary">View Threads</a>
-                </div>
-            </div>
-          </div>
-          ';
-        }    
-      ?>
-    </div>
-  </div>
+  <!-- body section  -->
+  <?php include "includes/bodysection.php"; ?>
   <?php include "includes/_footer.php"; ?>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
